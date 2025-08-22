@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: orangered;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: orange;
+  border-radius: 9px;
+  box-shadow: 15px 15px 20px 12px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  background-color: white;
+  margin: 0px 50px;
+  border-radius: 9px;
+  padding: 50px 200px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.6);
+}
