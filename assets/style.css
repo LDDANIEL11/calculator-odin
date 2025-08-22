@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Rock Salt;
+  src: url("//fonts.googleapis.com/css?family=Rock+Salt");
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -18,10 +23,43 @@ body {
   box-shadow: 15px 15px 20px 12px rgba(0, 0, 0, 0.3);
 }
 
+.btn {
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 900;
+  background-color: rgb(246, 182, 62);
+  border-color: rgb(246, 182, 62);
+  border-radius: 9px;
+  margin: 5px;
+  color: rgb(249, 215, 151);
+  box-shadow: 1px 1px 5px 0.5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.title {
+  font-family: Rock Salt;
+}
+
 .container {
   background-color: white;
   margin: 0px 50px;
   border-radius: 9px;
   padding: 50px 200px;
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.deleteSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  display: block;
+}
+
+img {
+  width: 20px;
+  height: 15px;
+}
+
+.clear {
+  margin-right: 250px;
 }
