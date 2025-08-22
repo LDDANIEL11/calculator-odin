@@ -63,3 +63,21 @@ img {
 .clear {
   margin-right: 250px;
 }
+
+.d789,
+.m456,
+.s123,
+.d0es {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.d0es {
+  margin-bottom: 50px;
+}
+
+.num {
+  margin: 10px;
+}
