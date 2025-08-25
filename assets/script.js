@@ -1,6 +1,6 @@
 "use strict";
 function sum(a, b) {
-  return a + b;
+  return Number(a) + Number(b);
 }
 
 function subtract(a, b) {
@@ -15,15 +15,15 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(a, str, b) {
-  if (str == "+") {
-    sum(a, b);
-  } else if (str == "-") {
-    subtract(a, b);
-  } else if (str == "*") {
-    multiply(a, b);
-  } else if ((str = "÷")) {
-    divide(a, b);
+function operate(a, op, b) {
+  if (op == "+") {
+    return sum(a, b);
+  } else if (op == "-") {
+    return subtract(a, b);
+  } else if (op == "X") {
+    return multiply(a, b);
+  } else if ((op = "÷")) {
+    return divide(a, b);
   } else return null;
 }
 
@@ -71,7 +71,7 @@ const operators = document.querySelectorAll(".operator");
 
 operators.forEach((op) => {
   op.addEventListener("click", () => {
-    currentOperator = String(op.textContent);
+    currentOperator = op.textContent;
     resetNext = true;
   });
 });
@@ -83,7 +83,8 @@ const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
   let result = operate(firstNumber, currentOperator, secondNumber);
   container.textContent = result;
-  alert(result);
+  firstNumber = String(result);
+  secondNumber = "";
 });
 
 //clear button
