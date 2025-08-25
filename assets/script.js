@@ -111,7 +111,13 @@ bckSpce.addEventListener("click", () => {
       secondNumber = container.textContent;
     }
   } else {
-    container.textContent = "0";
+    if (currentOperator == "") {
+      container.textContent = "0";
+      firstNumber = "";
+    } else {
+      container.textContent = "0";
+      secondNumber = "";
+    }
   }
 });
 
