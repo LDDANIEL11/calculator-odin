@@ -35,6 +35,7 @@ let secondNumber = "";
 //setting a flag
 let resetNext = false;
 
+//each number button eventlistener
 numbers.forEach((num) => {
   num.addEventListener("click", () => {
     const value = num.textContent;
@@ -45,9 +46,10 @@ numbers.forEach((num) => {
     } else {
       secondNumber += value;
     }
+    console.log(firstNumber, secondNumber);
   });
 });
-
+//function to change the container field number !!!
 function addNumbers(number) {
   //using the flag for when we set an operator
   if (resetNext) {
@@ -62,6 +64,9 @@ function addNumbers(number) {
 /*
 let result = operate(firstNumber, currentOperator, secondNumber);
 alert(result);*/
+
+//each operator button eventlistner
+
 const operators = document.querySelectorAll(".operator");
 
 operators.forEach((op) => {
@@ -97,8 +102,14 @@ clear.addEventListener("click", () => {
 const bckSpce = document.querySelector(".backspace");
 
 bckSpce.addEventListener("click", () => {
-  if (container.textContent > 1) {
-    container.textContent = container.textContent.slice(0, -1);
+  if (container.textContent.length > 1) {
+    if (currentOperator == "") {
+      container.textContent = container.textContent.slice(0, -1);
+      firstNumber = container.textContent;
+    } else {
+      container.textContent = container.textContent.slice(0, -1);
+      secondNumber = container.textContent;
+    }
   } else {
     container.textContent = "0";
   }
