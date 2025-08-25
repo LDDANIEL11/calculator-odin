@@ -1,17 +1,4 @@
 "use strict";
-
-function operate(a, str, b) {
-  if (str == "+") {
-    sum(a, b);
-  } else if (str == "-") {
-    subtract(a, b);
-  } else if (str == "*") {
-    multiply(a, b);
-  } else if ((str = "÷")) {
-    divide(a, b);
-  } else return null;
-}
-
 function sum(a, b) {
   return a + b;
 }
@@ -28,14 +15,23 @@ function divide(a, b) {
   return a / b;
 }
 
-let numStored = "";
-let opStored = "";
+function operate(a, str, b) {
+  if (str == "+") {
+    sum(a, b);
+  } else if (str == "-") {
+    subtract(a, b);
+  } else if (str == "*") {
+    multiply(a, b);
+  } else if ((str = "÷")) {
+    divide(a, b);
+  } else return null;
+}
 
 const numbers = document.querySelectorAll(".num");
 const container = document.querySelector(".container");
-let firstNumber = null;
-let currentOperator = null;
-let secondNumber = null;
+let firstNumber = "";
+let currentOperator = "";
+let secondNumber = "";
 //setting a flag
 let resetNext = false;
 
@@ -43,10 +39,11 @@ numbers.forEach((num) => {
   num.addEventListener("click", () => {
     const value = num.textContent;
     addNumbers(value);
-    if (currentOperator == null) {
-      firstNumber = value;
+    if (currentOperator == "") {
+      String(value);
+      firstNumber += value;
     } else {
-      secondNumber = value;
+      secondNumber += value;
     }
   });
 });
@@ -62,16 +59,56 @@ function addNumbers(number) {
     else container.textContent += number;
   }
 }
-
+/*
+let result = operate(firstNumber, currentOperator, secondNumber);
+alert(result);*/
 const operators = document.querySelectorAll(".operator");
 
 operators.forEach((op) => {
   op.addEventListener("click", () => {
-    currentOperator = op.textContent;
+    currentOperator = String(op.textContent);
     resetNext = true;
-    operate(firstNumber, currentOperator, secondNumber);
   });
 });
+
+//equal button
+
+const equal = document.querySelector(".equal");
+
+equal.addEventListener("click", () => {
+  let result = operate(firstNumber, currentOperator, secondNumber);
+  container.textContent = result;
+  alert(result);
+});
+
+//clear button
+
+const clear = document.querySelector(".clear");
+
+clear.addEventListener("click", () => {
+  container.textContent = "0";
+  firstNumber = "";
+  currentOperator = "";
+  secondNumber = "";
+});
+
+//backspace button
+
+const bckSpce = document.querySelector(".backspace");
+
+bckSpce.addEventListener("click", () => {
+  if (container.textContent > 1) {
+    container.textContent = container.textContent.slice(0, -1);
+  } else {
+    container.textContent = "0";
+  }
+});
+
+//
+
+//EXTRA CODES DOWN HERE !!!
+
+//
 
 //an eventlistner for when we want the operators to appear on the digit fieald as well as the numbers
 /*
